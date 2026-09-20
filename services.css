@@ -1,0 +1,442 @@
+/* ================================
+   TAXVIEW SERVICES PAGE
+   ================================ */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #ffffff;
+    color: #111111;
+    line-height: 1.6;
+}
+
+
+/* ================================
+   NAVIGATION
+   ================================ */
+
+.navbar {
+    background: #ffffff;
+    border-bottom: 1px solid #e5e5e5;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 18px 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 30px;
+}
+
+.logo {
+    width: 145px;
+    height: auto;
+    display: block;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+}
+
+.nav-links a {
+    color: #111111;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 600;
+    transition: 0.3s ease;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+    color: #0b5d3b;
+}
+
+
+/* ================================
+   SERVICES HERO
+   ================================ */
+
+.services-hero {
+    min-height: 420px;
+    background:
+        linear-gradient(rgba(5, 61, 39, 0.94), rgba(5, 61, 39, 0.94)),
+        url("images/hero-white-wallpaper.jpg") center/cover no-repeat;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 80px 25px;
+}
+
+.services-hero-content {
+    max-width: 850px;
+    color: #ffffff;
+}
+
+.eyebrow {
+    color: #d8b43c;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    margin-bottom: 15px;
+}
+
+.services-hero h1 {
+    font-size: clamp(48px, 7vw, 82px);
+    line-height: 1;
+    margin-bottom: 25px;
+    font-weight: 700;
+}
+
+.services-hero p:not(.eyebrow) {
+    font-size: 18px;
+    max-width: 700px;
+    margin: 0 auto;
+    color: #f5f5f5;
+}
+
+
+/* ================================
+   SERVICES SECTION
+   ================================ */
+
+.services-section {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 100px 30px;
+}
+
+.section-heading {
+    max-width: 750px;
+    margin-bottom: 60px;
+}
+
+.section-heading h2 {
+    font-size: clamp(34px, 5vw, 54px);
+    line-height: 1.1;
+    color: #064d32;
+    margin-bottom: 20px;
+}
+
+.section-heading > p:last-child {
+    color: #555555;
+    font-size: 17px;
+}
+
+
+/* ================================
+   SERVICES GRID
+   ================================ */
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+}
+
+
+/* ================================
+   SERVICE CARD
+   ================================ */
+
+.service-card {
+    background: #064d32;
+    color: #ffffff;
+    border-radius: 4px;
+    overflow: hidden;
+    position: relative;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.service-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+}
+
+.service-number {
+    position: absolute;
+    top: 22px;
+    left: 24px;
+    z-index: 2;
+
+    color: #d8b43c;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+
+/* ================================
+   IMAGE PLACEHOLDER
+   ================================ */
+
+.service-image {
+    height: 210px;
+    background: #dfe7e2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #064d32;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+.service-image span {
+    border: 1px dashed #064d32;
+    padding: 10px 15px;
+}
+
+
+/* ================================
+   CARD CONTENT
+   ================================ */
+
+.service-content {
+    padding: 30px;
+}
+
+.service-content h3 {
+    font-size: 28px;
+    line-height: 1.15;
+    margin-bottom: 15px;
+}
+
+.service-tagline {
+    color: #e8eee9;
+    font-size: 16px;
+    margin-bottom: 25px;
+}
+
+
+/* ================================
+   VIEW SERVICES BUTTON
+   ================================ */
+
+.service-toggle {
+    border: 1px solid #d8b43c;
+    background: transparent;
+    color: #ffffff;
+    padding: 12px 18px;
+    font-size: 13px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.service-toggle:hover {
+    background: #d8b43c;
+    color: #064d32;
+}
+
+
+/* ================================
+   EXPANDED SERVICE DETAILS
+   ================================ */
+
+.service-details {
+    display: none;
+    margin-top: 28px;
+    padding-top: 25px;
+    border-top: 1px solid rgba(255, 255, 255, 0.25);
+}
+
+.service-card.open .service-details {
+    display: block;
+}
+
+.service-details h4 {
+    font-size: 15px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #d8b43c;
+    margin-bottom: 15px;
+}
+
+.service-details ul {
+    list-style: none;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+}
+
+.service-details li {
+    font-size: 15px;
+    color: #ffffff;
+    padding-left: 18px;
+    position: relative;
+}
+
+.service-details li::before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    color: #d8b43c;
+    font-weight: 700;
+}
+
+
+/* ================================
+   FOOTER
+   ================================ */
+
+.footer {
+    background: #064d32;
+    color: #ffffff;
+    padding: 55px 30px;
+    text-align: center;
+}
+
+.footer-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.footer-logo {
+    width: 120px;
+    margin-bottom: 20px;
+}
+
+.footer p {
+    color: #cccccc;
+    font-size: 14px;
+    margin: 7px 0;
+}
+
+
+/* ================================
+   RESPONSIVE DESIGN
+   ================================ */
+
+@media (max-width: 850px) {
+
+    .nav-container {
+        flex-direction: column;
+        padding: 18px 20px;
+    }
+
+    .nav-links {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 15px;
+    }
+
+    .services-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .services-section {
+        padding: 70px 20px;
+    }
+}
+
+
+@media (max-width: 550px) {
+
+    .services-hero {
+        min-height: 360px;
+        padding: 60px 20px;
+    }
+
+    .services-hero h1 {
+        font-size: 50px;
+    }
+
+    .services-hero p:not(.eyebrow) {
+        font-size: 16px;
+    }
+
+    .service-content {
+        padding: 25px 20px;
+    }
+
+    .service-content h3 {
+        font-size: 24px;
+    }
+
+    .service-details ul {
+        grid-template-columns: 1fr;
+    }
+}
+.service-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+/* =========================
+   BOOKING CTA
+========================= */
+
+.booking-cta {
+    background: #ffffff;
+    padding: 65px 30px;
+    text-align: center;
+    border-top: 1px solid #e5e5e5;
+    border-bottom: 1px solid #e5e5e5;
+}
+
+
+.booking-cta-content {
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+
+.booking-cta h2 {
+    color: #064d32;
+    font-size: 30px;
+    font-weight: 700;
+    margin-bottom: 12px;
+}
+
+
+.booking-cta p {
+    color: #555555;
+    font-size: 16px;
+    max-width: 620px;
+    margin: 0 auto 25px;
+}
+
+
+.booking-button {
+    display: inline-block;
+
+    background: #064d32;
+    color: #ffffff;
+
+    padding: 14px 28px;
+
+    text-decoration: none;
+
+    font-size: 14px;
+    font-weight: 700;
+
+    border: 2px solid #064d32;
+
+    transition: 0.3s ease;
+}
+
+
+.booking-button:hover {
+    background: #d8b43c;
+    border-color: #d8b43c;
+    color: #064d32;
+}

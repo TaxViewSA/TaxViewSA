@@ -1,0 +1,381 @@
+/* ========================================
+   GENERAL SETTINGS
+======================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html {
+    scroll-behavior: smooth;
+}
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    color: #1f2d25;
+    background-color: #ffffff;
+    line-height: 1.6;
+}
+a {
+    text-decoration: none;
+    color: inherit;
+}
+img {
+    max-width: 100%;
+    display: block;
+}
+/* ========================================
+   COLOUR VARIABLES
+======================================== */
+:root {
+    --dark-green: #123d2a;
+    --green: #1d5a3a;
+    --light-green: #eaf2ed;
+    --white: #ffffff;
+    --off-white: #f7f9f7;
+    --black: #172019;
+    /* Small South African flag colour touches */
+    --flag-red: #de3831;
+    --flag-blue: #002395;
+    --flag-yellow: #e9d3a1;
+};
+/* ========================================
+   NAVIGATION BAR
+======================================== */
+.navbar {
+    width: 100%;
+    background-color: var(--white);
+    border-bottom: 1px solid #e5e9e6;
+    position: relative;
+    z-index: 1000;
+}
+.nav-container {
+    width: 90%;
+    max-width: 1250px;
+    margin: 0 auto;
+    min-height: 85px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+}
+/* LOGO */
+.logo {
+    display: flex;
+    align-items: center;
+}
+.logo img {
+    width: 145px;
+    height: auto;
+}
+/* NAVIGATION LINKS */
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+.nav-links a {
+    color: var(--dark-green);
+    font-size: 15px;
+    font-weight: 600;
+    padding: 10px 0;
+    position: relative;
+    transition:
+        color 0.3s ease;
+}
+/* Little line underneath the selected page */
+.nav-links a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 2px;
+    width: 0;
+    height: 2px;
+    background-color: var(--green);
+    transition: width 0.3s ease;
+}
+.nav-links a:hover {
+    color: var(--green);
+}
+.nav-links a:hover::after {
+    width: 100%;
+}
+.nav-links a.active {
+    color: var(--green);
+}
+.nav-links a.active::after {
+    width: 100%;
+}
+/* ========================================
+   HERO SECTION
+======================================== */
+.hero {
+    min-height: 650px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background-color: var(--dark-green);
+    /*
+        HERO BACKGROUND IMAGE
+        Your image will go here.
+        Make sure your image is called:
+        hero-background.jpg
+        and is inside the images folder.
+    */
+   
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+/* Dark green layer over the image */
+.hero-overlay {
+    position: absolute;
+    inset: 0;
+    background-color: rgba(10, 45, 30, 0.72);
+    z-index: 1;
+}
+/* HERO CONTENT */
+.hero-content {
+    position: relative;
+    z-index: 2;
+    width: 90%;
+    max-width: 900px;
+    color: var(--white);
+    padding: 80px 20px;
+}
+/* HERO LOGO */
+.hero-logo {
+    width: 180px;
+    height: auto;
+    margin: 0 auto 35px;
+    /*
+        If your logo is already white,
+        this will work nicely on the green background.
+    */
+}
+/* MAIN HERO TITLE */
+.hero h1 {
+    font-size: clamp(42px, 6vw, 76px);
+    line-height: 1.08;
+    font-weight: 700;
+    letter-spacing: -1px;
+    margin-bottom: 25px;
+}
+/* HERO DESCRIPTION */
+.hero p {
+    max-width: 650px;
+    margin: 0 auto;
+    font-size: 20px;
+    line-height: 1.7;
+    color: #f3f6f4;
+}
+/* ========================================
+   CLIENT REVIEWS SECTION
+======================================== */
+.reviews {
+    position: relative;
+    padding: 100px 20px;
+    background-color: var(--dark-green);
+    /*
+        REVIEWS BACKGROUND IMAGE
+        Your image will go here.
+        Make sure your image is called:
+        reviews-background.jpg
+        and is inside the images folder.
+    */
+    background-image: url("images/reviews-background.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+/* Dark/green layer over review image */
+.reviews-overlay {
+    position: absolute;
+    inset: 0;
+    background-color: rgba(10, 50, 32, 0.82);
+    z-index: 1;
+}
+/* REVIEWS CONTENT */
+.reviews-container {
+    position: relative;
+    z-index: 2;
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
+/* REVIEW HEADING */
+.reviews-heading {
+    grid-column: 1 / -1;
+    text-align: center;
+    margin-bottom: 25px;
+}
+.reviews-heading h2 {
+    color: var(--white);
+    font-size: clamp(32px, 5vw, 48px);
+    line-height: 1.2;
+    margin-bottom: 10px;
+}
+/* REVIEW CARD */
+.review-card {
+    background-color: rgba(255, 255, 255, 0.96);
+    border-radius: 8px;
+    padding: 35px 30px;
+    min-height: 310px;
+    display: flex;
+    align-items: center;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
+.review-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.20);
+}
+/* REVIEW TITLE */
+.review-card h3 {
+    color: var(--dark-green);
+    font-size: 22px;
+    margin-bottom: 18px;
+}
+/* REVIEW TEXT */
+.review-card p {
+    color: #46544c;
+    font-size: 16px;
+    line-height: 1.7;
+    margin-bottom: 25px;
+}
+/* REVIEW NAME */
+.review-card h4 {
+    color: var(--green);
+    font-size: 15px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+}
+/* ========================================
+   FOOTER
+======================================== */
+.footer {
+    background-color: var(--dark-green);
+    color: var(--white);
+    border-top: 4px solid var(--flag-yellow);
+}
+.footer-container {
+    width: 90%;
+    max-width: 1250px;
+    margin: 0 auto;
+    padding: 55px 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    align-items: center;
+    gap: 40px;
+}
+/* FOOTER LOGO */
+.footer-logo img {
+    width: 140px;
+}
+/* FOOTER ADDRESS */
+.footer-address {
+    text-align: center;
+}
+.footer-address p {
+    font-size: 15px;
+    line-height: 1.8;
+    color: #e8eee9;
+}
+/* COPYRIGHT */
+.footer-copyright {
+    text-align: right;
+}
+.footer-copyright p {
+    font-size: 14px;
+    color: #d7e2db;
+}
+/* ========================================
+   RESPONSIVE DESIGN
+   TABLET
+======================================== */
+@media (max-width: 900px) {
+    .nav-container {
+        flex-direction: column;
+        padding: 20px 0;
+        gap: 15px;
+    }
+    .nav-links {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 15px 25px;
+    }
+    .hero {
+        min-height: 600px;
+    }
+    .reviews-container {
+        grid-template-columns: 1fr;
+    }
+    .review-card {
+        min-height: auto;
+    }
+    .footer-container {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+    .footer-copyright {
+        text-align: center;
+    }
+    .footer-logo img {
+        margin: 0 auto;
+    }
+}
+/* ========================================
+   RESPONSIVE DESIGN
+   MOBILE
+======================================== */
+@media (max-width: 600px) {
+    .nav-container {
+        width: 92%;
+    }
+    .logo img {
+        width: 125px;
+    }
+    .nav-links {
+        gap: 10px 18px;
+    }
+    .nav-links a {
+        font-size: 13px;
+    }
+    .hero {
+        min-height: 570px;
+    }
+    .hero-content {
+        padding: 60px 15px;
+    }
+    .hero-logo {
+        width: 140px;
+        margin-bottom: 25px;
+    }
+    .hero h1 {
+        font-size: 42px;
+        letter-spacing: -0.5px;
+    }
+    .hero p {
+        font-size: 17px;
+    }
+    .reviews {
+        padding: 70px 15px;
+    }
+    .reviews-container {
+        width: 95%;
+    }
+    .review-card {
+        padding: 28px 23px;
+    }
+    .footer-container {
+        width: 90%;
+        padding: 45px 0;
+    }
+}
